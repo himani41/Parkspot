@@ -6,3 +6,4 @@ export const MIN_DURATION_MINUTES = 10
 export const MAX_DURATION_MINUTES = 240
 export const DURATION_STEP = 5
 export const MIN_ZOOM = 15
+export const TEST = 15
