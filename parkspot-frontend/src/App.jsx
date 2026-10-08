@@ -4,6 +4,7 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import MapPage from './pages/MapPage'
 import HistoryPage from './pages/HistoryPage'
+import LandingPage from './pages/LandingPage'
 
 function ProtectedRoute({ children }) {
 	const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
@@ -14,10 +15,11 @@ export default function App() {
 	return (
 		<BrowserRouter>
 			<Routes>
+				<Route path='/' element={<LandingPage />} />
 				<Route path='/login' element={<Login />} />
 				<Route path='/signup' element={<Signup />} />
 				<Route
-					path='/'
+					path='/map'
 					element={
 						<ProtectedRoute>
 							<MapPage />
@@ -32,6 +34,7 @@ export default function App() {
 						</ProtectedRoute>
 					}
 				/>
+				<Route path='*' element={<Navigate to='/' replace />} />
 			</Routes>
 		</BrowserRouter>
 	)
